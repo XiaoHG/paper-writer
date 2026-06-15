@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paper-writer"
+version = "0.1.0"
+description = "AI-assisted essay writer built with LangGraph and Gradio."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "gradio>=5.0.0",
+  "langchain-core>=0.3.0",
+  "langchain-openai>=0.3.0",
+  "langgraph>=0.2.0",
+  "langgraph-checkpoint-sqlite>=2.0.0",
+  "pydantic>=2.0.0",
+  "python-dotenv>=1.0.0",
+  "tavily-python>=0.5.0",
+]
+
+[project.scripts]
+paper-writer = "app:main"
+
+[tool.setuptools]
+py-modules = ["__main__", "agent", "app", "config", "prompts", "state", "ui"]
