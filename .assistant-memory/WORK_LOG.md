@@ -13,3 +13,7 @@
   the project easier to read and maintain without changing behavior.
 - Added an always-maintained graph flow diagram to `agent.py` and recorded the
   rule that future graph changes must update that diagram in the same change.
+- Refined `prompts.py` so planning, writing, critique, and research prompts are
+  more explicit, structured, and consistent with the current agent workflow.
+- Reworked `prompts.py` from short-essay prompts into research-paper prompts
+  targeted at AI, deep learning, and medical research writing.
