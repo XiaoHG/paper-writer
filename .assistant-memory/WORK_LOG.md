@@ -9,3 +9,5 @@
   - the recovery command is `恢复项目`
 - Completed an initial read-only scan of the project.
 - Captured current architecture, flow, and risks in `PROJECT_STATE.md`.
+- Added comprehensive code comments/docstrings across the Python modules to make
+  the project easier to read and maintain without changing behavior.
