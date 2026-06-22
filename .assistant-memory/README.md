@@ -10,6 +10,8 @@ rules, or recovery data.
 - Do not mix assistant memory into project source files.
 - When the user says `恢复项目`, use the files in this directory to recover the
   latest working context quickly.
+- Whenever `agent.py` graph structure changes, update the graph flow diagram in
+  `agent.py` comments in the same change.
 
 ## Recovery procedure for future Codex workbenches
 
@@ -25,4 +27,3 @@ When the user says `恢复项目`, do this first:
 
 - `PROJECT_STATE.md`: current understanding of the project.
 - `WORK_LOG.md`: chronological work log and durable decisions.
-

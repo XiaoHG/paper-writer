@@ -1,4 +1,40 @@
-"""LangGraph agent for planning, researching, drafting, and revising essays."""
+"""LangGraph agent for planning, researching, drafting, and revising essays.
+
+Graph flow:
+
+            START
+              |
+              v
+      +---------------+
+      |    planner    |
+      +---------------+
+              |
+              v
+      +---------------+
+      | research_plan |
+      +---------------+
+              |
+              |
+              |------------------------------------------+
+              |               revision loop              |
+              v                                          |
+      +---------------+      +-----------+     +-------------------+ 
+      |    generate   |----->|  reflect  |---->| research_critique |
+      +---------------+      +-----------+     +-------------------+  
+              |                                                 
+ (if revision_number >= max_revisions)
+              | 
+              v
+             END
+
+The main path enters the revision loop at ``generate``. If more revisions are
+needed, the graph continues through ``reflect`` and ``research_critique`` and
+then loops back to ``generate`` again.
+
+The ``generate -> reflect -> research_critique -> generate`` section forms the
+revision loop. Whenever the graph structure changes, this diagram must be
+updated in the same change so the code comments stay accurate.
+"""
 
 from __future__ import annotations
 
@@ -57,6 +93,16 @@ class EssayWriterAgent:
 
         The graph intentionally interrupts after every major node so the UI can
         inspect state, let the user edit values, and then continue execution.
+
+        Graph diagram:
+
+            planner -> research_plan -> generate
+                                          |
+                                          +-> END                if revisions are done
+                                          |
+                                          +-> reflect
+                                              -> research_critique
+                                              -> generate        revision loop
         """
 
         # In-memory checkpointing keeps thread history available during the

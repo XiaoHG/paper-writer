@@ -11,3 +11,5 @@
 - Captured current architecture, flow, and risks in `PROJECT_STATE.md`.
 - Added comprehensive code comments/docstrings across the Python modules to make
   the project easier to read and maintain without changing behavior.
+- Added an always-maintained graph flow diagram to `agent.py` and recorded the
+  rule that future graph changes must update that diagram in the same change.
